@@ -1,3 +1,32 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+function loadDotEnv() {
+  let contents: string;
+  try {
+    contents = readFileSync(resolve(process.cwd(), ".env"), "utf8");
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return;
+    throw error;
+  }
+
+  for (const line of contents.split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+    if (!match || process.env[match[1]] !== undefined) continue;
+
+    const rawValue = match[2];
+    const value =
+      rawValue.startsWith('"') && rawValue.endsWith('"')
+        ? rawValue.slice(1, -1).replace(/\\n/g, "\n").replace(/\\"/g, '"')
+        : rawValue.startsWith("'") && rawValue.endsWith("'")
+          ? rawValue.slice(1, -1)
+          : rawValue;
+    process.env[match[1]] = value;
+  }
+}
+
+loadDotEnv();
+
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";

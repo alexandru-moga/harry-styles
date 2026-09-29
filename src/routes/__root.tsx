@@ -79,13 +79,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Harry Styles – Hrănitorul de pești" },
+      { title: "Harry Styles" },
       {
         name: "description",
         content:
           "Dă-i lui Harry Styles masa lui de una singură pe zi – altfel sefii Poxi, Beto și Josh tipă la tine.",
       },
-      { property: "og:title", content: "Harry Styles – Hrănitorul de pești" },
+      { property: "og:title", content: "Harry Styles" },
       {
         property: "og:description",
         content: "O masă pe zi îl ține pe Harry fericit.",
@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&family=JetBrains+Mono:wght@500&display=swap",
       },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico?v=2", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,

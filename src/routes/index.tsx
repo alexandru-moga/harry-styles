@@ -10,12 +10,12 @@ import { getAllFeedings, getStatus, recordFeeding } from "@/lib/feeding.function
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Harry Styles – Hrănitorul de pești" },
+      { title: "Harry Styles" },
       {
         name: "description",
         content: "I-ai dat de mâncare lui Harry Styles azi? O masă pe zi, altfel Poxi, Beto și Josh tipă la tine.",
       },
-      { property: "og:title", content: "Harry Styles – Hrănitorul de pești" },
+      { property: "og:title", content: "Harry Styles" },
       {
         property: "og:description",
         content: "I-ai dat de mâncare lui Harry Styles azi? O masă pe zi, altfel Poxi, Beto și Josh tipă la tine.",
